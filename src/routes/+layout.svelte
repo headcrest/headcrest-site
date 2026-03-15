@@ -1,5 +1,7 @@
 <script>
 	import '../app.css';
+	
+	let { children } = $props();
 </script>
 
 <div class="site-wrapper">
@@ -15,7 +17,7 @@
 	</nav>
 	
 	<main>
-		<slot />
+		{@render children()}
 	</main>
 	
 	<footer class="footer">

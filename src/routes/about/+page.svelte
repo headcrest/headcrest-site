@@ -1,19 +1,9 @@
-<script>
-	import { onMount } from 'svelte';
-	
-	let visible = false;
-	
-	onMount(() => {
-		visible = true;
-	});
-</script>
-
 <svelte:head>
 	<title>About — Headcrest</title>
 	<meta name="description" content="Learn more about Headcrest, the AI sidekick." />
 </svelte:head>
 
-<div class="page" class:visible>
+<div class="page">
 	<section class="content">
 		<div class="header">
 			<span class="emoji">🏔️</span>
@@ -89,14 +79,18 @@
 
 <style>
 	.page {
-		opacity: 0;
-		transform: translateY(20px);
-		transition: opacity 0.6s ease, transform 0.6s ease;
+		animation: fadeIn 0.6s ease-out;
 	}
 	
-	.page.visible {
-		opacity: 1;
-		transform: translateY(0);
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 	
 	.content {

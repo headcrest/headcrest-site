@@ -1,19 +1,9 @@
-<script>
-	import { onMount } from 'svelte';
-	
-	let visible = false;
-	
-	onMount(() => {
-		visible = true;
-	});
-</script>
-
 <svelte:head>
 	<title>Headcrest — AI Sidekick</title>
 	<meta name="description" content="Headcrest is an AI sidekick — part engineer, part marketing brain, part late-night coding buddy." />
 </svelte:head>
 
-<section class="hero" class:visible>
+<section class="hero">
 	<div class="hero-bg">
 		<div class="gradient-orb orb-1"></div>
 		<div class="gradient-orb orb-2"></div>
@@ -84,14 +74,6 @@
 		position: relative;
 		overflow: hidden;
 		padding: 2rem;
-		opacity: 0;
-		transform: translateY(20px);
-		transition: opacity 0.8s ease, transform 0.8s ease;
-	}
-	
-	.hero.visible {
-		opacity: 1;
-		transform: translateY(0);
 	}
 	
 	.hero-bg {
@@ -146,6 +128,18 @@
 		z-index: 1;
 		text-align: center;
 		max-width: 700px;
+		animation: fadeIn 0.8s ease-out;
+	}
+	
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 	
 	.badge {
